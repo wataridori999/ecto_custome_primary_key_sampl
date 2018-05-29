@@ -61,4 +61,23 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+#import_config "prod.secret.exs"
+
+# In this file, we keep production configuration that
+# you'll likely want to automate and keep away from
+# your version control system.
+#
+# You should document the content of this
+# file or create a script for recreating it, since it's
+# kept out of version control and might be hard to recover
+# or recreate for your teammates (or yourself later on).
+config :ecto_custome_primary_key_sample, EctoCustomePrimaryKeySampleWeb.Endpoint,
+  secret_key_base: "Kl5oYleXmr6IxiIedKtdoHhQxvfDN1DQ323IgUNcR6xbrcke2zVEoUqWTgTjnUKC"
+
+# Configure your database
+config :ecto_custome_primary_key_sample, EctoCustomePrimaryKeySample.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "ecto_custome_primary_key_sample_prod",
+  pool_size: 15
